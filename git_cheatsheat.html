@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git CHEATSHEET - Aish</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #667eea;
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .author {
+            color: #888;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #764ba2;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .command {
+            background: #2d3748;
+            color: #68d391;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+        .description {
+            color: #555;
+            margin: 5px 0 15px 0;
+            line-height: 1.6;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .links {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .code-example {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            color: #d73a49;
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Git CHEATSHEET</h1>
+            <div class="subtitle">Quick Reference Guide</div>
+            <div class="author">Created for Aish</div>
+        </div>
+
+        <div class="intro">
+            <strong>What is Git?</strong><br>
+            Git is a version control system used for tracking changes in computer files and coordinating work among multiple people. It's a distributed version control system allowing simultaneous collaboration while tracking individual changes. Git has become the standard tool for software development collaboration.
+        </div>
+
+        <div class="section">
+            <h2>📥 Installation & GUIs</h2>
+            <div class="links">
+                <strong>GitHub for Windows:</strong> <a href="https://windows.github.com" target="_blank">https://windows.github.com</a><br>
+                <strong>GitHub for Mac:</strong> <a href="https://mac.github.com" target="_blank">https://mac.github.com</a><br>
+                <strong>Git for All Platforms:</strong> <a href="https://git-scm.com" target="_blank">https://git-scm.com</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ Setup</h2>
+            <p><strong>Configuring user information used across all local repositories:</strong></p>
+            
+            <div class="command">git config --global user.name "[firstname lastname]"</div>
+            <div class="description">Set a name that is identifiable for credit when reviewing version history.</div>
+
+            <div class="command">git config --global user.email "[valid-email]"</div>
+            <div class="description">Set an email address that will be associated with each history marker.</div>
+
+            <div class="command">git config --global color.ui auto</div>
+            <div class="description">Set automatic command line coloring for Git for easy reviewing.</div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Setup & Init</h2>
+            <p><strong>Configuring user information, initializing and cloning repositories:</strong></p>
+
+            <div class="command">git init</div>
+            <div class="description">Initialize an existing directory as a Git repository.</div>
+
+            <div class="command">git clone [URL]</div>
+            <div class="description">Retrieve an entire repository from a hosted location via URL.</div>
+        </div>
+
+        <div class="section">
+            <h2>📸 Stage & Snapshot</h2>
+            <p><strong>Working with snapshots and the Git staging area:</strong></p>
+
+            <div class="command">git status</div>
+            <div class="description">Show modified files in working directory, staged for your next commit.</div>
+
+            <div class="command">git add [file]</div>
+            <div class="description">Add a file as it looks now to your next commit (stage).</div>
+
+            <div class="command">git reset [file]</div>
+            <div class="description">Unstage a file while retaining the changes in working directory.</div>
+
+            <div class="command">git diff</div>
+            <div class="description">Diff of what is changed but not staged.</div>
+
+            <div class="command">git diff --staged</div>
+            <div class="description">Diff of what is staged but not yet committed.</div>
+
+            <div class="command">git commit -m "[descriptive message]"</div>
+            <div class="description">Commit your staged content as a new commit snapshot.</div>
+        </div>
+
+        <div class="section">
+            <h2>🌿 Branch & Merge</h2>
+            <p><strong>Isolating work in branches, changing context, and integrating changes:</strong></p>
+
+            <div class="command">git branch</div>
+            <div class="description">List your branches. A * will appear next to the currently active branch.</div>
+
+            <div class="command">git branch [branch-name]</div>
+            <div class="description">Create a new branch at the current commit.</div>
+
+            <div class="command">git checkout</div>
+            <div class="description">Switch to another branch and check it out into your working directory.</div>
+
+            <div class="command">git merge [branch]</div>
+            <div class="description">Merge the specified branch's history into the current one.</div>
+
+            <div class="command">git log</div>
+            <div class="description">Show all commits in the current branch's history.</div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Inspect & Compare</h2>
+            <p><strong>Examining logs, diffs and object information:</strong></p>
+
+            <div class="command">git log</div>
+            <div class="description">Show the commit history for the currently active branch.</div>
+
+            <div class="command">git log branchB..branchA</div>
+            <div class="description">Show the commits on branchA that are not on branchB.</div>
+
+            <div class="command">git log --follow [file]</div>
+            <div class="description">Show the commits that changed file, even across renames.</div>
+
+            <div class="command">git diff branchB...branchA</div>
+            <div class="description">Show the diff of what is in branchA that is not in branchB.</div>
+
+            <div class="command">git show [SHA]</div>
+            <div class="description">Show any object in Git in human-readable format.</div>
+        </div>
+
+        <div class="section">
+            <h2>📁 Tracking Path Changes</h2>
+            <p><strong>Versioning file removes and path changes:</strong></p>
+
+            <div class="command">git rm [file]</div>
+            <div class="description">Delete the file from project and stage the removal for commit.</div>
+
+            <div class="command">git mv [existing-path] [new-path]</div>
+            <div class="description">Change an existing file path and stage the move.</div>
+
+            <div class="command">git log --stat -M</div>
+            <div class="description">Show all commit logs with indication of any paths that moved.</div>
+        </div>
+
+        <div class="section">
+            <h2>🚫 Ignoring Patterns</h2>
+            <p><strong>Preventing unintentional staging or committing of files:</strong></p>
+
+            <div class="note">
+                <strong>Example .gitignore patterns:</strong>
+                <div class="code-example">
+                    logs/<br>
+                    *.notes<br>
+                    pattern*/
+                </div>
+                Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.
+            </div>
+
+            <div class="command">git config --global core.excludesfile [file]</div>
+            <div class="description">System wide ignore pattern for all local repositories.</div>
+        </div>
+
+        <div class="section">
+            <h2>🔄 Share & Update</h2>
+            <p><strong>Retrieving updates from another repository and updating local repository:</strong></p>
+
+            <div class="command">git remote add [alias] [URL]</div>
+            <div class="description">Add a git URL as an alias.</div>
+
+            <div class="command">git fetch [alias]</div>
+            <div class="description">Fetch down all the branches from that Git remote.</div>
+
+            <div class="command">git merge [alias]/[branch]</div>
+            <div class="description">Merge a remote branch into your current branch to bring it up to date.</div>
+
+            <div class="command">git push [alias] [branch]</div>
+            <div class="description">Transmit local branch commits to the remote repository branch.</div>
+
+            <div class="command">git pull</div>
+            <div class="description">Fetch and merge any commits from the tracking remote branch.</div>
+        </div>
+
+        <div class="section">
+            <h2>✏️ Rewrite History</h2>
+            <p><strong>Rewriting branches, updating commits and clearing history:</strong></p>
+
+            <div class="command">git rebase [branch]</div>
+            <div class="description">Apply any commits of current branch ahead of specified one.</div>
+
+            <div class="command">git reset --hard [commit]</div>
+            <div class="description">Clear staging area, rewrite working tree from specified commit.</div>
+        </div>
+
+        <div class="section">
+            <h2>💾 Temporary Commits</h2>
+            <p><strong>Temporarily store modified, tracked files in order to change branches:</strong></p>
+
+            <div class="command">git stash</div>
+            <div class="description">Save modified and staged changes.</div>
+
+            <div class="command">git stash list</div>
+            <div class="description">List stack-order of stashed file changes.</div>
+
+            <div class="command">git stash pop</div>
+            <div class="description">Write working from top of stash stack.</div>
+
+            <div class="command">git stash drop</div>
+            <div class="description">Discard the changes from top of stash stack.</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #667eea; color: #888;">
+            <p><strong>Git Cheatsheet - Aish Edition</strong></p>
+            <p>Keep coding and version controlling! 🚀</p>
+        </div>
+    </div>
+</body>
+</html>
